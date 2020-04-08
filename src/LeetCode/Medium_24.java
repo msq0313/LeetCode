@@ -19,6 +19,25 @@ public class Medium_24 {
             val = x;
         }
     }
+
+    //两两翻转，搞清head、prev、curr、next的关系
+    public ListNode swapPairs(ListNode head) {
+        ListNode result = new ListNode(-1);
+        result.next = head;
+        ListNode prev = result;
+        while (head != null && head.next != null) {
+            ListNode curr = head;
+            ListNode next = head.next;
+
+            curr.next = next.next;
+            next.next = curr;
+            prev.next = next;
+            prev = curr;
+            head = curr.next;
+        }
+        return result.next;
+    }
+
     //初始化链表
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
@@ -37,22 +56,5 @@ public class Medium_24 {
         System.out.println(result.next.next.val);
         System.out.println(result.next.next.next.val);
         System.out.println(result.next.next.next.next.val);
-    }
-    //两两翻转，搞清head、prev、curr、next的关系
-    public ListNode swapPairs(ListNode head) {
-        ListNode result = new ListNode(-1);
-        result.next = head;
-        ListNode prev = result;
-        while (head != null && head.next != null) {
-            ListNode curr = head;
-            ListNode next = head.next;
-
-            curr.next = next.next;
-            next.next = curr;
-            prev.next = next;
-            prev = curr;
-            head = curr.next;
-        }
-        return result.next;
     }
 }
