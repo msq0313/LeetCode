@@ -1,5 +1,9 @@
 package LeetCode;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * 151. 翻转字符串里的单词
  * 给定一个字符串，逐个翻转字符串中的每个单词。
@@ -30,5 +34,14 @@ package LeetCode;
  * 请选用 C 语言的用户尝试使用 O(1) 额外空间复杂度的原地解法。
  */
 public class Medium_151 {
-    
+    public String reverseWords(String s) {
+        s = s.trim();
+        // 正则匹配连续的空白字符作为分隔符
+        List<String> wordList = Arrays.asList(s.split("\\s+"));
+        Collections.reverse(wordList);
+        return String.join(" ", wordList);
+    }
+    public static void main(String[] args) {
+        System.out.println(new Medium_151().reverseWords("  hello world!  "));
+    }
 }
