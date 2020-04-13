@@ -38,14 +38,17 @@ public class Medium_355 {
             List<Integer> ans = new ArrayList<>();
             Iterator<Integer> it = posts.computeIfAbsent(userId, x -> new LinkedList<>()).iterator();
             // add current user's posts
+            // 添加当前用户的推文
             for (int i = 0; i < LIMIT && it.hasNext(); i++)
                 ans.add(it.next());
-
+            //遍历follow的用户ID
             for (int uid : following.computeIfAbsent(userId, x -> new LinkedHashSet<>())) {
                 if (userId == uid) continue;
                 List<Integer> tmp = new ArrayList<>();
+                //获取follow的用户的Set推文
                 it = posts.computeIfAbsent(uid, x -> new LinkedList<>()).iterator();
-
+                // 初始化pid1为当前用户第一条推文
+                // 初始化pid2为follow用户第一条推文
                 Integer pid1 = ans.size() > 0 ? ans.get(0) : null;
                 Integer pid2 = it.hasNext() ? it.next() : null;
 
