@@ -1,5 +1,5 @@
 # LeetCool
 Records of LeetCode 's problems
 
-Here is the [index](INDEX/INDEX.MD).
+Here is the question [index](docs/INDEX.MD)
 
