@@ -1,5 +1,4 @@
 package LeetCode;
-
 /**
  * 289. 生命游戏
  * 根据 百度百科 ，生命游戏，简称为生命，是英国数学家约翰·何顿·康威在 1970 年发明的细胞自动机。
@@ -28,7 +27,6 @@ package LeetCode;
  *   [0,1,1],
  *   [0,1,0]
  * ]
- *  
  *
  * 进阶：
  *
@@ -37,6 +35,7 @@ package LeetCode;
  */
 //原地算法
 public class Medium_289 {
+
     public void gameOfLife(int[][] board) {
         int rows = board.length;
         int cols = board[0].length;
@@ -74,6 +73,23 @@ public class Medium_289 {
                     board[row][col] = 1;
                 } else board[row][col] = 0;
             }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[][] board = new int[][]{
+                {0,1,0},
+                {0,0,1},
+                {1,1,1},
+                {0,0,0}
+        };
+        Medium_289 medium_289 = new Medium_289();
+        medium_289.gameOfLife(board);
+        for (int[] ints : board) {
+            for (int j = 0; j < board[0].length; j++) {
+                System.out.print(ints[j] + " ");
+            }
+            System.out.println();
         }
     }
 }
