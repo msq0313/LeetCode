@@ -17,6 +17,7 @@ public class Niu_StringReplace {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         for (String str : sarray) {
+            //若分隔后的第一个字符串是空串，就先加一个arg中的字符
             if (str.length() == 0) {
                 sb.append(arg[i]);
             } else {
