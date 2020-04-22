@@ -18,6 +18,7 @@ public class TreeLevelOrder {
     }
 
     public static void main(String[] args) {
+        int[] num = new int[]{};
         TreeLevelOrder.TreeNode[] node = new TreeLevelOrder.TreeNode[10];
         for (int i = 0; i < 10; i++) {
             node[i] = new TreeLevelOrder.TreeNode(i);
