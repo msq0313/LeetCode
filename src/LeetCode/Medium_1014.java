@@ -12,7 +12,7 @@ public class Medium_1014 {
 //        }
 //        return res;
 //    }
-    //
+    //公式：A[i]+A[j]+i-j，可以先用O(n)时间求出B[j]=A[j]-j，再用一次循环不断更新最大值即可，整体时间复杂度O(n)
     public int maxScoreSightseeingPair(int[] A) {
         int res = Integer.MIN_VALUE;
         int max = Integer.MIN_VALUE;
