@@ -20,32 +20,28 @@ import java.util.*;
 
  */
 public class Medium_46 {
+
+    List<List<Integer>> res = new ArrayList<>();
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
         int len = nums.length;
         if (len == 0) {
             return res;
         }
-        Deque<Integer> stack = new ArrayDeque<Integer>();
-        boolean[] used = new boolean[len];
-        dfs(nums, len, 0, stack, used, res);
+        LinkedList<Integer> stack = new LinkedList<>();
+        trackback(nums, stack);
         return res;
     }
 
-    public void dfs(int[] nums, int len, int depth, Deque<Integer> stack, boolean[] used, List<List<Integer>> res) {
-        if (depth == len) {
+    public void trackback(int[] nums, Deque<Integer> stack) {
+        if (stack.size() == nums.length) {
             res.add(new ArrayList<>(stack));
             return;
         }
-        for (int i = 0; i < len; i++) {
-            if (used[i]) {
-                continue;
-            }
-            stack.addLast(nums[i]);
-            used[i] = true;
-            dfs(nums, len, depth + 1, stack, used, res);
+        for (int num : nums) {
+            if (stack.contains(num)) continue;
+            stack.addLast(num);
+            trackback(nums, stack);
             stack.removeLast();
-            used[i] = false;
         }
     }
 
