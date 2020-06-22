@@ -23,8 +23,7 @@ public class Medium_46 {
 
     List<List<Integer>> res = new ArrayList<>();
     public List<List<Integer>> permute(int[] nums) {
-        int len = nums.length;
-        if (len == 0) {
+        if (nums.length == 0) {
             return res;
         }
         LinkedList<Integer> stack = new LinkedList<>();
@@ -32,7 +31,7 @@ public class Medium_46 {
         return res;
     }
 
-    public void trackback(int[] nums, Deque<Integer> stack) {
+    public void trackback(int[] nums, LinkedList<Integer> stack) {
         if (stack.size() == nums.length) {
             res.add(new ArrayList<>(stack));
             return;
