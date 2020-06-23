@@ -21,45 +21,60 @@ public class Medium_34 {
 输出: [-1,-1]
  */
     public int[] searchRange(int[] nums, int target) {
-        int low = 0, high = nums.length - 1;
         int[] positon = new int[2];
-        positon[0] = searchLowerBound(nums, target, low, high);
-        positon[1] = searchHigherBound(nums, target, low, high);
+        positon[0] = searchLowerBound(nums, target);
+        positon[1] = searchHigherBound(nums, target);
         return positon;
     }
-
-    int searchLowerBound(int[] nums, int target, int low, int high) {
-        while (low <= high) {
-            int middle = low + (high - low) / 2;
-            if (nums[middle] == target && (middle == 0 || nums[middle - 1] < target)) {
-                return middle;
-            }
-            if (target <= nums[middle]) {
-                high = middle - 1;
-            } else {
-                low = middle + 1;
+    //左边界，闭区间写法
+    int searchLowerBound(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] == target) {
+                right = mid - 1;
             }
         }
-        return -1;
+        if (left >= nums.length || nums[left] != target) {
+            return -1;
+        }
+        return left;
     }
-
-    int searchHigherBound(int[] nums, int target, int low, int high) {
-        while (low <= high) {
-            int middle = low + (high - low) / 2;
-            if (nums[middle] == target && (middle == nums.length - 1 || nums[middle + 1] > target)) {
-                return middle;
-            }
-            if (target < nums[middle]) {
-                high = middle - 1;
-            } else {
-                low = middle + 1;
+    //右边界，闭区间写法
+    int searchHigherBound(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid - 1;
+            } else if (nums[mid] == target) {
+                left = mid + 1;
             }
         }
-        return -1;
+        if (right < 0 || nums[right] != target) {
+            return -1;
+        }
+        return right;
     }
 
     public static void main(String[] args) {
-        Medium_34 medium_34 = new Medium_34();
-        System.out.println(Arrays.toString(medium_34.searchRange(new int[]{2,2}, 2)));
+//        int[] nums = new int[]{
+//                5,7,7,8,8,10
+//        };
+//        int target = 8;
+
+        int[] nums = new int[]{
+                1
+        };
+        int target = 1;
+        System.out.println(Arrays.toString(new Medium_34().searchRange(nums, target)));
     }
 }
