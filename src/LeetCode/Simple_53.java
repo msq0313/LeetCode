@@ -14,22 +14,38 @@ package LeetCode;
 
  */
 public class Simple_53 {
+//    public int maxSubArray(int[] nums) {
+//        int len = nums.length;
+//        if (len == 0) {
+//            return 0;
+//        }
+//        int max = nums[0];
+//        int sum = 0;
+//        for (int num : nums) {
+//            if (sum < 0) {
+//                sum = num;
+//            } else {
+//                sum += num;
+//            }
+//            max = Math.max(max, sum);
+//        }
+//        return max;
+//    }
+
+    //动态规划
     public int maxSubArray(int[] nums) {
-        int len = nums.length;
-        if (len == 0) {
+        if (nums.length == 0) {
             return 0;
         }
-        int max = nums[0];
-        int sum = 0;
-        for (int num : nums) {
-            if (sum < 0) {
-                sum = num;
-            } else {
-                sum += num;
-            }
-            max = Math.max(max, sum);
+        int res = nums[0];
+        int[] dp = new int[nums.length];
+        //dp[i]代表以i为结尾的最大子序和
+        dp[0] = nums[0];
+        for (int i = 1; i < dp.length; i++) {
+            dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
+            res = Math.max(res, dp[i]);
         }
-        return max;
+        return res;
     }
 
     public static void main(String[] args) {
