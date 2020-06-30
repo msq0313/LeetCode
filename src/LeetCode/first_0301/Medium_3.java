@@ -25,31 +25,30 @@ import java.util.Set;
      请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
  */
 public class Medium_3 {
-
+    //左右指针，滑动窗口
     public int lengthOfLongestSubstring(String s) {
-        // 哈希集合，记录每个字符是否出现过
-        Set<Character> occ = new HashSet<Character>();
-        int n = s.length();
-        // 右指针，初始值为 -1，相当于我们在字符串的左边界的左侧，还没有开始移动
-        int rk = 0, ans = 0;
-        for (int i = 0; i < n; ++i) {
-            if (i != 0) {
-                // 左指针向右移动一格，移除一个字符
-                occ.remove(s.charAt(i - 1));
+        int left = 0;
+        int right = 0;
+        int res = 0;
+        int[] freq = new int[128];
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            right++;
+            if (++freq[c] == 1) {
+                res = Math.max(res, right - left);
+            } else {
+                while (freq[c] == 2) {
+                    char d = s.charAt(left);
+                    freq[d]--;
+                    left++;
+                }
             }
-            while (rk < n && !occ.contains(s.charAt(rk))) {
-                // 不断地移动右指针
-                occ.add(s.charAt(rk));
-                ++rk;
-            }
-            // 第 i 到 rk 个字符是一个极长的无重复字符子串
-            ans = Math.max(ans, rk - i);
         }
-        return ans;
+        return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(new Medium_3().lengthOfLongestSubstring("bbbbb"));
+        System.out.println(new Medium_3().lengthOfLongestSubstring("abcabcbb"));
     }
 }
 
