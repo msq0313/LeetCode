@@ -15,7 +15,7 @@ public class BubbleSort {
      * 情景三：给定的数组杂乱无章
      * 在这种情况下，平均时间复杂度是O(n^2)
      */
-    private int[] bubblesort(int[] nums) {
+    private int[] bubbleSort(int[] nums) {
         boolean hasChange = true;
         for (int i = 0; i < nums.length - 1 && hasChange; i++) {
             //若此轮未发生交换，则证明相邻两个数后一个数都比前一个数大，证明已排好序
@@ -35,6 +35,6 @@ public class BubbleSort {
     public static void main(String[] args) {
         BubbleSort bubbleSort = new BubbleSort();
         int[] nums = {3, 2, 4, 1, 5};
-        System.out.println(Arrays.toString(bubbleSort.bubblesort(nums)));
+        System.out.println(Arrays.toString(bubbleSort.bubbleSort(nums)));
     }
 }

@@ -15,7 +15,7 @@ public class InsertionSort {
      * 在这种情况下，平均时间复杂度是O(n^2)
      * Leetcode147
      */
-    private int[] insertionsort(int[] nums) {
+    private int[] insertionSort(int[] nums) {
         for (int i = 1, j, current; i < nums.length; i++) {
             current = nums[i];
             for (j = i - 1; j >= 0 && nums[j] > current; j--) {
@@ -29,6 +29,6 @@ public class InsertionSort {
     public static void main(String[] args) {
         int[] nums = {2, 1, 7, 9, 5, 8};
         InsertionSort insertionSort = new InsertionSort();
-        System.out.println(Arrays.toString(insertionSort.insertionsort(nums)));
+        System.out.println(Arrays.toString(insertionSort.insertionSort(nums)));
     }
 }
