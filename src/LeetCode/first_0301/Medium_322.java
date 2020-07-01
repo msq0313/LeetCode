@@ -55,8 +55,12 @@ public class Medium_322 {
 
 
     public int coinChange(int[] coins, int amount) {
+        //初始化大小为amount + 1，为了容得下dp[0]至dp[amount]
+        //状态变化只有一个，i，所以用一维数组
         int[] dp = new int[amount + 1];
+        //dp[i]含义为，金额为i时所需要的硬币最小个数，而硬币最大需要个数为amount，所以初始化数组所有元素为amount+1
         Arrays.fill(dp, amount + 1);
+        //base case 金额为0时需要0个硬币
         dp[0] = 0;
         for (int i = 0; i < dp.length; i++) {
             for (int coin : coins) {
