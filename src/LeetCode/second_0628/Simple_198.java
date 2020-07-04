@@ -25,26 +25,56 @@ package LeetCode.second_0628;
  */
 public class Simple_198 {
     //动态规划
-    public int rob(int[] nums) {
-        if (nums.length == 0) {
-            return 0;
+//    public int rob(int[] nums) {
+//        if (nums.length == 0) {
+//            return 0;
+//        }
+//        if (nums.length == 1) {
+//            return nums[0];
+//        }
+//        if (nums.length == 2) {
+//            return Math.max(nums[0], nums[1]);
+//        }
+//        int[] dp = new int[nums.length];
+//        dp[0] = nums[0];
+//        dp[1] = nums[1];
+//        dp[2] = Math.max(nums[0] + nums[2], nums[1]);
+//        int res = dp[2];
+//        for (int i = 3; i < nums.length; i++) {
+//            dp[i] = Math.max(dp[i - 2], dp[i - 3]) + nums[i];
+//            res = Math.max(res, dp[i]);
+//        }
+//        return res;
+//    }
+
+    //动态规划2
+//    int rob(int[] nums) {
+//        int n = nums.length;
+//        // dp[i] = x 表示：
+//        // 从第 i 间房子开始抢劫，最多能抢到的钱为 x
+//        // base case: dp[n] = 0
+//        int[] dp = new int[n + 2];
+//        for (int i = n - 1; i >= 0; i--) {
+//            dp[i] = Math.max(dp[i + 1], nums[i] + dp[i + 2]);
+//        }
+//        return dp[0];
+//    }
+    //动态规划3
+    //进一步优化，空间复杂度O(1)
+    int rob(int[] nums) {
+        int n = nums.length;
+        // dp[i] = x 表示：
+        // 从第 i 间房子开始抢劫，最多能抢到的钱为 x
+        // base case: dp[n] = 0
+        int dp = 0;
+        int dp1 = 0;
+        int dp2 = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            dp = Math.max(dp1, dp2 + nums[i]);
+            dp2 = dp1;
+            dp1 = dp;
         }
-        if (nums.length == 1) {
-            return nums[0];
-        }
-        if (nums.length == 2) {
-            return Math.max(nums[0], nums[1]);
-        }
-        int[] dp = new int[nums.length];
-        dp[0] = nums[0];
-        dp[1] = nums[1];
-        dp[2] = Math.max(nums[0] + nums[2], nums[1]);
-        int res = dp[2];
-        for (int i = 3; i < nums.length; i++) {
-            dp[i] = Math.max(dp[i - 2], dp[i - 3]) + nums[i];
-            res = Math.max(res, dp[i]);
-        }
-        return res;
+        return dp;
     }
 
     public static void main(String[] args) {
