@@ -27,19 +27,52 @@ package LeetCode.买卖股票的最佳时机;
 解释: 在这个情况下, 没有交易完成, 所以最大利润为 0。
  */
 public class Hard_123 {
+//    public int maxProfit(int[] prices) {
+//        int n = prices.length;
+//        if (n == 0) {
+//            return 0;
+//        }
+//        // 限制了两笔交易
+//        int k = 2;
+//        int[][][] dp = new int[n][k+1][2];
+//        for (int i = 0; i < n; i++) {
+//            for (int K = k; K >= 1; K--) {
+//                if (i == 0) {
+//                    dp[i][K][0] = 0;
+//                    dp[i][K][1] = -prices[i];
+//                    continue;
+//                }
+//                dp[i][K][0] = Math.max(dp[i - 1][K][0], dp[i - 1][K][1] + prices[i]);
+//                dp[i][K][1] = Math.max(dp[i - 1][K][1], dp[i - 1][K - 1][0] - prices[i]);
+//            }
+//        }
+//        return dp[n - 1][k][0];
+//    }
+
     public int maxProfit(int[] prices) {
         int n = prices.length;
+        if (n == 0) {
+            return 0;
+        }
         // 限制了两笔交易
         int k = 2;
-        int i = 0;
-        int[][][] dp = new int[][][]{
+        int dp_i10 = 0;
+        int dp_i11 = Integer.MIN_VALUE;
+        int dp_i20 = 0;
+        int dp_i21 = Integer.MIN_VALUE;
+        for (int price : prices) {
+            dp_i20 = Math.max(dp_i20, dp_i21 + price);
+            dp_i21 = Math.max(dp_i21, dp_i10 - price);
+            dp_i10 = Math.max(dp_i10, dp_i11 + price);
+            dp_i11 = Math.max(dp_i11, -price);
 
-        };
-        return dp[n - 1][k][0];
+        }
+        return dp_i20;
     }
+
     public static void main(String[] args) {
         int[] prices = new int[]{
-                3,3,5,0,0,3,1,4
+                1,2,3,4,5
         };
         System.out.println(new Hard_123().maxProfit(prices));
     }

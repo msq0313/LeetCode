@@ -21,6 +21,7 @@ package LeetCode.买卖股票的最佳时机;
  */
 public class Hard_188 {
     public int maxProfit(int k, int[] prices) {
+        // 此题能够任意指定交易次数
         // k <= len/2
         // 状态有三个：天数、交易数、是否持有股票 i从0开始，k从1开始
         // dp[i][k][0 or 1] 为在第i天，k次交易次数，是否持有股票时能获得的最大利润
@@ -30,7 +31,7 @@ public class Hard_188 {
         // 持有股票状态，通过前一天持有保持，或者前一天未持有且在今天买了股票而得到
         // dp[i][k][1] = max(dp[i - 1][k][1],dp[i - 1][k - 1][0] - prices[i]) 买时减少利润
 
-        // 大于len / 2时，与股票2问题一样
+        // 大于len / 2时，与股票2问题一样，可以避免k过大时测试用例不通过的问题
         int len = prices.length;
         if (k > len / 2) {
             int res = 0;
