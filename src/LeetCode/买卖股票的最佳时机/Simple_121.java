@@ -1,4 +1,4 @@
-package LeetCode.first_0301;
+package LeetCode.买卖股票的最佳时机;
 /**
  * 121. 买卖股票的最佳时机
  * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
@@ -20,6 +20,7 @@ package LeetCode.first_0301;
  * 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
  */
 public class Simple_121 {
+    // 不断维护最小值，找price - min的最大值
     public int maxProfit(int[] prices) {
         int res = 0;
         int min = Integer.MAX_VALUE;

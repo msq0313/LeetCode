@@ -41,18 +41,20 @@ public class Medium_146 {
     }
 
     public void put(int key, int value) {
-        //判断key是否存在映射
         DLinkedNode node = cache.get(key);
-        if (cache.get(key) == null) {
+        //判断key是否存在映射
+        if (node == null) {
             //不存在映射
             DLinkedNode newNode = new DLinkedNode();
             newNode.key = key;
             newNode.value = value;
+            //添加映射
             cache.put(key, newNode);
             //链表中在head之后添加节点
             addNode(newNode);
             //链表长度加一
             size++;
+            //如果超容，链表去掉最后一个节点，哈希表删除映射，size减小
             if (size > capacity) {
                 DLinkedNode res = tail.prev;
                 removeNode(res);
@@ -98,12 +100,12 @@ public class Medium_146 {
         Medium_146 cache = new Medium_146(2);
         cache.put(1, 1);
         cache.put(2, 2);
-        cache.get(1);
+        System.out.println(cache.get(1));
         cache.put(3, 3);
-        cache.get(2);
+        System.out.println(cache.get(2));
         cache.put(4, 4);
-        cache.get(1);
-        cache.get(3);
-        cache.get(4);
+        System.out.println(cache.get(1));
+        System.out.println(cache.get(3));
+        System.out.println(cache.get(4));
     }
 }
