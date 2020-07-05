@@ -44,9 +44,20 @@ public class Simple_122 {
         return res;
     }
 
+    //通用模板
+//    public int maxProfit(int[] prices) {
+//        int dp_i0 = 0;
+//        int dp_i1 = Integer.MIN_VALUE;
+//        for (int price : prices) {
+//            dp_i0 = Math.max(dp_i0, dp_i1 + price);
+//            dp_i1 = Math.max(dp_i1, dp_i0 - price);
+//        }
+//        return dp_i0;
+//    }
+
     public static void main(String[] args) {
         int[] prices = new int[]{
-                7,1,5,3,6,4
+                1,2,3,4,5
         };
         System.out.println(new Simple_122().maxProfit(prices));
     }
