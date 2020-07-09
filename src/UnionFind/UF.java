@@ -2,11 +2,11 @@ package UnionFind;
 
 public class UF {
     // 记录连通分量个数
-    int count;
+    private int count;
     // 父节点
-    int[] parent;
+    private int[] parent;
     // 树的重量
-    int[] size;
+    private int[] size;
     // 初始化
     public UF(int n) {
         count = n;
@@ -33,13 +33,16 @@ public class UF {
     public void union(int a, int b) {
         int rootA = find(a);
         int rootB = find(b);
+        if (rootA == rootB) {
+            return;
+        }
         //小树挂在大树下
-        if (size[a] > size[b]) {
-            parent[b] = a;
-            size[a] += size[b];
+        if (size[rootA] > size[rootB]) {
+            parent[rootB] = rootA;
+            size[rootA] += size[rootB];
         } else {
-            parent[a] = b;
-            size[b] += size[a];
+            parent[rootA] = rootB;
+            size[rootB] += size[rootA];
         }
         count--;
     }
