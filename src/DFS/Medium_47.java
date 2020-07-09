@@ -1,4 +1,4 @@
-package LeetCode.first_0301;
+package DFS;
 
 import java.util.ArrayList;
 import java.util.Arrays;

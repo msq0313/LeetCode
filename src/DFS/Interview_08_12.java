@@ -1,20 +1,34 @@
-package LeetCode.first_0301;
+package DFS;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 /*
-51. N皇后
+面试题 08.12. 八皇后
+设计一种算法，打印 N 皇后在 N × N 棋盘上的各种摆法，其中每个皇后都不同行、不同列，也不在对角线上。这里的“对角线”指的是所有的对角线，不只是平分整个棋盘的那两条对角线。
 
-n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
+注意：本题相对原题做了扩展
 
-给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。
+示例:
 
-每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 'Q' 和 '.' 分别代表了皇后和空位。
+ 输入：4
+ 输出：[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+ 解释: 4 皇后问题存在如下两个不同的解法。
+[
+ [".Q..",  // 解法 1
+  "...Q",
+  "Q...",
+  "..Q."],
 
+ ["..Q.",  // 解法 2
+  "Q...",
+  "...Q",
+  ".Q.."]
+]
  */
-public class Hard_51 {
+public class Interview_08_12 {
+
     List<List<String>> res = new LinkedList<>();
     public List<List<String>> solveNQueens(int n) {
         LinkedList<String> track = new LinkedList<>();
@@ -74,7 +88,7 @@ public class Hard_51 {
     }
 
     public static void main(String[] args) {
-        List<List<String>> res = new Hard_51().solveNQueens(4);
+        List<List<String>> res = new Interview_08_12().solveNQueens(4);
         for (List<String> re : res) {
             for (String r : re) {
                 System.out.println(r);
