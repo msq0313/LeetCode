@@ -24,18 +24,22 @@ public class BinaryTreeGenerate {
 
         if (l >= nums.length)
             return root;
-        root.left = new TreeNode(nums[l]);
+        if (nums[l] != null) {
+            root.left = new TreeNode(nums[l]);
+            generate(root.left, nums, l);
+        } else root.left = null;
 
         if (r >= nums.length)
             return root;
-        root.right = new TreeNode(nums[r]);
+        if (nums[r] != null) {
+            root.right = new TreeNode(nums[r]);
+            generate(root.right, nums, r);
+        } else root.right = null;
 
-        generate(root.left, nums, l);
-        generate(root.right, nums, r);
         return root;
     }
 
-    // 层序遍历s
+    // 层序遍历
     public static void levelOrder(TreeNode root) {
         if (root == null) {
             return;
@@ -56,7 +60,7 @@ public class BinaryTreeGenerate {
     }
 
     public static void main(String[] args) {
-        Integer[] nums = {2, 1, 3, 5, 7, 8, 9};
+        Integer[] nums = {2, 1, 3, 5, null, 8, 9};
         int index = 0;
         TreeNode root = new BinaryTreeGenerate().generate(new TreeNode(), nums, index);
         levelOrder(root);
