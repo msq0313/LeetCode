@@ -50,6 +50,7 @@ public class Simple_234 {
         if (head == null) {
             return true;
         }
+        boolean res = true;
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null && fast.next != null) {
@@ -60,24 +61,45 @@ public class Simple_234 {
             slow = slow.next;
         }
 
-        // 翻转slow链表
+        ListNode left = head;
+        ListNode right = reverse(slow);
+        ListNode temp = right;
+
+        // 对比两个链表
+        while (right != null) {
+            if (right.val != left.val) {
+                res = false;
+                break;
+            }
+            right = right.next;
+            left = left.next;
+        }
+
+        // 修复原链表
+        while (left.next.next != null) {
+            left = left.next;
+        }
+        left.next = reverse(temp);
+        ListNode h = head;
+        while (h != null) {
+            System.out.println(h.val);
+            h = h.next;
+        }
+
+        return res;
+    }
+
+    public ListNode reverse(ListNode head) {
+        // 翻转链表
         ListNode pre = null;
-        ListNode cur = slow;
+        ListNode cur = head;
         while (cur != null) {
             ListNode next = cur.next;
             cur.next = pre;
             pre = cur;
             cur = next;
         }
-        // 对比两个链表
-        while (pre != null) {
-            if (pre.val != head.val) {
-                return false;
-            }
-            pre = pre.next;
-            head = head.next;
-        }
-        return true;
+        return pre;
     }
 
     public static void main(String[] args) {
