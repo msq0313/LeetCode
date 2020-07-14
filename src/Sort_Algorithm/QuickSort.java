@@ -22,7 +22,12 @@ public class QuickSort {
 
     private void quickSort(int[] nums, int left, int right) {
         // 小区间使用插入排序
-        if (right - left <= INSERTION_SORT_THRESHOLD) {
+//        if (right - left <= INSERTION_SORT_THRESHOLD) {
+//            insertionSort(nums, left, right);
+//            return;
+//        }
+
+        if (right <= left) {
             insertionSort(nums, left, right);
             return;
         }
