@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class QuickSort3 {
     // 快速排序优雅版
-    public int[] Sort(int[] nums) {
+    public int[] sort(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
         return nums;
     }
@@ -16,6 +16,7 @@ public class QuickSort3 {
         }
         if (left < right) {
             int dp = partition(nums, left, right);
+            System.out.println(dp);
             quickSort(nums, left, dp - 1);
             quickSort(nums, dp + 1, right);
         }
@@ -27,18 +28,18 @@ public class QuickSort3 {
             while (left < right && nums[right] >= pivot)
                 right--;
             if (left < right)
-                nums[left++] = right;
+                nums[left++] = nums[right];
             while (left < right && nums[left] <= pivot)
                 left++;
             if (left < right)
-                nums[right--] = left;
+                nums[right--] = nums[left];
         }
         nums[left] = pivot;
         return left;
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 1, 4, 7, 4, 8};
-        System.out.println(Arrays.toString(new QuickSort3().Sort(nums)));
+        int[] nums = new int[]{5,2,3,1};
+        System.out.println(Arrays.toString(new QuickSort3().sort(nums)));
     }
 }
