@@ -15,10 +15,9 @@ public class QuickSort3 {
             return;
         }
         if (left < right) {
-            int dp = partition(nums, left, right);
-            System.out.println(dp);
-            quickSort(nums, left, dp - 1);
-            quickSort(nums, dp + 1, right);
+            int index = partition(nums, left, right);
+            quickSort(nums, left, index - 1);
+            quickSort(nums, index + 1, right);
         }
     }
 
