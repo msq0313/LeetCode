@@ -1,4 +1,4 @@
-package Cache;
+package Cache.LRUCache;
 
 import java.util.HashMap;
 

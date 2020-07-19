@@ -1,4 +1,4 @@
-package Cache;
+package Cache.Test1;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -10,6 +10,19 @@ import java.util.Scanner;
 2 1
 1 4 4
 2 2
+
+
+输入
+9 2
+1 1 1
+1 2 2
+2 1
+1 3 3
+2 2
+1 4 4
+2 1
+2 3
+2 4
  */
 public class Main {
 
