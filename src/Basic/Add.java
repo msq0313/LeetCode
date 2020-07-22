@@ -3,7 +3,7 @@ package Basic;
 public class Add {
     public static void main(String[] args) {
         Add add = new Add();
-        System.out.println(add.add(5,7));
+        System.out.println(add.add(5,7)); //101  111
     }
     public int add(int num1,int num2) {
         while (num2 != 0) {

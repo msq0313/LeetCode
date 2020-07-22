@@ -2,7 +2,7 @@ package Basic;
 
 import java.util.Scanner;
 
-//a+b
+// 最普通的a+b
 public class a_b {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
