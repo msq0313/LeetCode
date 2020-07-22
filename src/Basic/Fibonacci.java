@@ -25,7 +25,7 @@ public class Fibonacci {
         }
         return result;
     }
-    //时间复杂度n，
+    //时间复杂度n
     private int[] dp(int num) {
         int[] result = new int[num];
         result[0] = 1;

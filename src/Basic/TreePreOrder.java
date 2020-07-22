@@ -34,27 +34,23 @@ public class TreePreOrder {
         }
 
         preOrderRe(node[0]);
+        System.out.println();
+        preOrder(node[0]);
     }
 
     //递归实现
     public static void preOrderRe(TreeNode biTree)
     {
-        System.out.println(biTree.value);
-        TreeNode leftTree = biTree.left;
-        if(leftTree != null)
-        {
-            preOrderRe(leftTree);
-        }
-        TreeNode rightTree = biTree.right;
-        if(rightTree != null)
-        {
-            preOrderRe(rightTree);
+        if (biTree != null) {
+            System.out.println(biTree.value);
+            preOrderRe(biTree.left);
+            preOrderRe(biTree.right);
         }
     }
 
     //非递归实现
     public static void preOrder(TreeNode biTree) {
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        Stack<TreeNode> stack = new Stack<>();
         while (biTree != null || !stack.isEmpty()) {
             while (biTree != null) {
                 System.out.println(biTree.value);
