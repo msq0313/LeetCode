@@ -29,18 +29,17 @@ public class Offer04 {
         if (matrix.length == 0) {
             return false;
         }
-        // 从右上角
+        // 从左下角，时间复杂度O(row+col)
+        int row = matrix.length - 1;
+        int col = 0;
         boolean res = false;
-        for (int i = matrix[0].length - 1; i >= 0; i--) {
-            if (matrix[0][i] <= target) {
-                for (int j = 0; j < matrix.length; j++) {
-                    if (matrix[j][i] == target) {
-                        res = true;
-                        break;
-                    }
-                }
-            }
-            if (res) {
+        while (row >= 0 && col < matrix[0].length) {
+            if (matrix[row][col] > target) {
+                row--;
+            } else if (matrix[row][col] < target) {
+                col++;
+            } else if (matrix[row][col] == target) {
+                res = true;
                 break;
             }
         }
