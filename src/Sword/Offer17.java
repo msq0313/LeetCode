@@ -1,5 +1,6 @@
 package Sword;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /*
@@ -17,12 +18,53 @@ import java.util.Arrays;
 n 为正整数
  */
 public class Offer17 {
+    // 用字符串处理，注重进位问题
+
+    // 常规方法
 //    public int[] printNumbers(int n) {
-//
+//        ArrayList<Integer> list = new ArrayList<>();
+//        int N = (int) Math.pow(10, n);
+//        int[] res = new int[N - 1];
+//        for (int i = 1; i < N; i++) {
+//            res[i - 1] = i;
+//        }
+//        return res;
 //    }
-//
-//    public static void main(String[] args) {
-//        int n = 1;
-//        System.out.println(Arrays.toString(new Offer17().printNumbers(n)));
-//    }
+
+    // 针对大数，全排列，DFS/回溯
+    int[] res;
+    int nine = 0, count = 0, start, n;
+    char[] num, loop = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    public int[] printNumbers(int n) {
+        // 位数n
+        this.n = n;
+        // 结果数组
+        res = new int[(int)Math.pow(10, n) - 1];
+        // 字符数组
+        num = new char[n];
+        start = n - 1;
+        dfs(0);
+        return res;
+    }
+    void dfs(int x) {
+        // x为层数
+        if(x == n) {
+            String s = String.valueOf(num).substring(start);
+            if(!s.equals("0")) res[count++] = Integer.parseInt(s);
+            if(n - start == nine) start--;
+            return;
+        }
+
+        for(char i : loop) {
+            if(i == '9') nine++;
+            num[x] = i;
+            dfs(x + 1);
+        }
+        nine--;
+    }
+
+    public static void main(String[] args) {
+        int n = 2;
+        System.out.println(Arrays.toString(new Offer17().printNumbers(n)));
+    }
 }
