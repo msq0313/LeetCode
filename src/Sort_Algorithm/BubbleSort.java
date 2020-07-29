@@ -33,8 +33,13 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
+        long startTime = System.nanoTime();   //获取开始时间
         BubbleSort bubbleSort = new BubbleSort();
-        int[] nums = {3, 2, 4, 1, 5};
+        int[] nums = new int[]{
+                2,1,4,7,4,8,3,6,4,7
+        };
         System.out.println(Arrays.toString(bubbleSort.bubbleSort(nums)));
+        long endTime = System.nanoTime(); //获取结束时间
+        System.out.println("程序运行时间： "+ (endTime-startTime) +"ns");
     }
 }

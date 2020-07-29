@@ -38,7 +38,12 @@ public class QuickSort3 {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{5,2,3,1};
+        long startTime = System.nanoTime();   //获取开始时间
+        int[] nums = new int[]{
+                2,1,4,7,4,8,3,6,4,7
+        };
         System.out.println(Arrays.toString(new QuickSort3().sort(nums)));
+        long endTime = System.nanoTime(); //获取结束时间
+        System.out.println("程序运行时间： "+ (endTime-startTime) +"ns");
     }
 }

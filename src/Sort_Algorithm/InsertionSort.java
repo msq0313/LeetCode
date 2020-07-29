@@ -30,8 +30,13 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2, 1, 7, 9, 5, 8};
+        long startTime = System.nanoTime();   //获取开始时间
+        int[] nums = new int[]{
+                2,1,4,7,4,8,3,6,4,7
+        };
         InsertionSort insertionSort = new InsertionSort();
         System.out.println(Arrays.toString(insertionSort.insertionSort(nums)));
+        long endTime = System.nanoTime(); //获取结束时间
+        System.out.println("程序运行时间： "+ (endTime-startTime) +"ns");
     }
 }
