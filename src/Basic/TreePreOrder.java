@@ -39,27 +39,27 @@ public class TreePreOrder {
     }
 
     //递归实现
-    public static void preOrderRe(TreeNode biTree)
+    public static void preOrderRe(TreeNode node)
     {
-        if (biTree != null) {
-            System.out.println(biTree.value);
-            preOrderRe(biTree.left);
-            preOrderRe(biTree.right);
+        if (node != null) {
+            System.out.println(node.value);
+            preOrderRe(node.left);
+            preOrderRe(node.right);
         }
     }
 
     //非递归实现
-    public static void preOrder(TreeNode biTree) {
+    public static void preOrder(TreeNode node) {
         Stack<TreeNode> stack = new Stack<>();
-        while (biTree != null || !stack.isEmpty()) {
-            while (biTree != null) {
-                System.out.println(biTree.value);
-                stack.push(biTree);
-                biTree = biTree.left;
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {
+                System.out.println(node.value);
+                stack.push(node);
+                node = node.left;
             }
             if (!stack.isEmpty()) {
-                biTree = stack.pop();
-                biTree = biTree.right;
+                node = stack.pop();
+                node = node.right;
             }
         }
     }

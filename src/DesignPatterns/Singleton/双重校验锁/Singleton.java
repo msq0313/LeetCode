@@ -1,19 +1,20 @@
 package DesignPatterns.Singleton.双重校验锁;
 
 public class Singleton {
-    private volatile static Singleton singleton;
+    // 禁止指令重排序优化
+    private volatile static Singleton INSTANCE;
 
     private Singleton() {}
 
     public static Singleton getInstance() {
-        if (singleton == null) {
+        if (INSTANCE == null) {
             synchronized (Singleton.class) {
-                if (singleton == null) {
-                    singleton = new Singleton();
+                if (INSTANCE == null) {
+                    INSTANCE = new Singleton();
                 }
             }
         }
-        return singleton;
+        return INSTANCE;
     }
 
     public void showMessage() {

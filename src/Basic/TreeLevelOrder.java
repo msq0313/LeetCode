@@ -33,11 +33,11 @@ public class TreeLevelOrder {
     }
 
     //层次遍历
-    public static void levelOrder(TreeNode biTree) {
-        if (biTree == null)
+    public static void levelOrder(TreeNode node) {
+        if (node == null)
             return;
         LinkedList<TreeNode> list = new LinkedList<>();
-        list.add(biTree);
+        list.add(node);
         TreeNode currentNode;
         while (!list.isEmpty()) {
             currentNode = list.poll();

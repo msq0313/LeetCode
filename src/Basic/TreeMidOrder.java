@@ -39,27 +39,27 @@ public class TreeMidOrder {
     }
 
     //中序遍历递归实现
-    public static void midOrderRe(TreeNode biTree)
+    public static void midOrderRe(TreeNode node)
     {
-        if(biTree != null) {
-            midOrderRe(biTree.left);
-            System.out.println(biTree.value);
-            midOrderRe(biTree.right);
+        if(node != null) {
+            midOrderRe(node.left);
+            System.out.println(node.value);
+            midOrderRe(node.right);
         }
     }
 
     //中序遍历费递归实现
-    public static void midOrder(TreeNode biTree) {
+    public static void midOrder(TreeNode node) {
         Stack<TreeNode> stack = new Stack<>();
-        while (biTree != null || !stack.isEmpty()) {
-            while (biTree != null) {
-                stack.push(biTree);
-                biTree = biTree.left;
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {
+                stack.push(node);
+                node = node.left;
             }
             if (!stack.isEmpty()) {
-                biTree = stack.pop();
-                System.out.println(biTree.value);
-                biTree = biTree.right;
+                node = stack.pop();
+                System.out.println(node.value);
+                node = node.right;
             }
         }
     }
