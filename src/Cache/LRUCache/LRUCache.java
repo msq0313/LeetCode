@@ -14,7 +14,7 @@ import java.util.HashMap;
 的数据值，从而为新的数据值留出空间。
  */
 public class LRUCache {
-    // key,value链表节点
+    // key,value双向链表节点
     public static class Node {
         public int key, value;
         Node next, pre;
@@ -54,7 +54,7 @@ public class LRUCache {
     }
 
     public void put(int key, int value) {
-        // 缓存中已有，更新值，且利用get方法将节点移至队头
+        // 缓存中已有，更新值，且get方法已将节点移至队头
         if (get(key) != -1) {
             map.get(key).value = value;
             return;
