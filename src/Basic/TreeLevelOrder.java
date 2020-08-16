@@ -38,14 +38,14 @@ public class TreeLevelOrder {
             return;
         LinkedList<TreeNode> list = new LinkedList<>();
         list.add(node);
-        TreeNode currentNode;
+        TreeNode cur;
         while (!list.isEmpty()) {
-            currentNode = list.poll();
-            System.out.println(currentNode.value);
-            if (currentNode.left != null)
-                list.add(currentNode.left);
-            if (currentNode.right != null)
-                list.add(currentNode.right);
+            cur = list.poll();
+            System.out.println(cur.value);
+            if (cur.left != null)
+                list.add(cur.left);
+            if (cur.right != null)
+                list.add(cur.right);
         }
     }
 }
