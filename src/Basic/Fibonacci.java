@@ -10,8 +10,8 @@ public class Fibonacci {
         Fibonacci fibonacci = new Fibonacci();
         int num = scanner.nextInt();
         System.out.println(Arrays.toString(fibonacci.generate(num)));
-        System.out.println(fibonacci.recurrence(num));
-        System.out.println(Arrays.toString(fibonacci.dp(num)));
+//        System.out.println(fibonacci.recurrence(num));
+//        System.out.println(Arrays.toString(fibonacci.dp(num)));
     }
     //时间复杂度n，空间复杂度1（计算固定数的情况）
     private int[] generate(int num) {

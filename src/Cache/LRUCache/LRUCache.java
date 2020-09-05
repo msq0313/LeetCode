@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class LRUCache {
     // key,value双向链表节点
     public static class Node {
-        public int key, value;
+        int key, value;
         Node next, pre;
 
         Node(int key, int value) {
