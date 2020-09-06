@@ -23,33 +23,40 @@ import java.util.*;
  */
 public class Medium_347 {
 
-    public List<Integer> topKFrequent(int[] nums, int k) {
-        HashMap<Integer, Integer> count = new HashMap<>();
-        for (int n : nums) {
-            count.put(n, count.getOrDefault(n, 0) + 1);
-        }
-        PriorityQueue<Integer> heap = new PriorityQueue<>((n1, n2) -> count.get(n1) - count.get(n2));
-        //Java 的new PriorityQueue<Integer>((n1, n2) -> count.get(n1) - count.get(n2)); 中，入队后排序方法会实时调用map#get 方法进行节点调整。 可以考虑封装为对象放入。
-
-        //堆中为频率最大前k个元素
-        for (int n: count.keySet()) {
-            heap.add(n);
-            if (heap.size() > k)
-                heap.poll();
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> occurrences = new HashMap<>();
+        for (int num : nums) {
+            occurrences.put(num, occurrences.getOrDefault(num, 0) + 1);
         }
 
-        List<Integer> res = new LinkedList<>();
-        while (!heap.isEmpty()) {
-            res.add(heap.poll());
+        // int[] 的第一个元素代表数组的值，第二个元素代表了该值出现的次数
+        PriorityQueue<int[]> queue = new PriorityQueue<int[]>(new Comparator<int[]>() {
+            public int compare(int[] m, int[] n) {
+                return m[1] - n[1];
+            }
+        });
+        for (Map.Entry<Integer, Integer> entry : occurrences.entrySet()) {
+            int num = entry.getKey(), count = entry.getValue();
+            if (queue.size() == k) {
+                if (queue.peek()[1] < count) {
+                    queue.poll();
+                    queue.offer(new int[]{num, count});
+                }
+            } else {
+                queue.offer(new int[]{num, count});
+            }
         }
-        Collections.reverse(res);
-        return res;
+        int[] ret = new int[k];
+        for (int i = 0; i < k; ++i) {
+            ret[i] = queue.poll()[0];
+        }
+        return ret;
     }
 
     public static void main(String[] args) {
         Medium_347 medium_347 = new Medium_347();
         int[] array = {1,1,1,2,2,3,3,3,3,3};
-        List<Integer> res = medium_347.topKFrequent(array, 2);
-        System.out.println(res);
+        int[] res = medium_347.topKFrequent(array, 2);
+        System.out.println(Arrays.toString(res));
     }
 }
