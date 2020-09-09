@@ -33,6 +33,7 @@ public class Heap {
         PriorityQueue<Integer> min = new PriorityQueue<>();
         max.add(A[0]);
         res[0] = A[0];
+
         for (int i = 1; i < n; i++) {
             if (A[i] <= res[i - 1]) {
                 max.add(A[i]);

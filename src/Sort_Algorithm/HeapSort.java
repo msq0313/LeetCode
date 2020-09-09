@@ -3,7 +3,7 @@ package Sort_Algorithm;
 import java.util.Arrays;
 /*
     堆的初始化，时间复杂度为O(n)。
-    在堆排序中一次进行堆的初始化操作，其时间复杂度为O(n)，n-1次进行堆的调整，每次调整的时间复杂度为O(logn)，
+    在堆排序中一次进行堆的初始化操作，其时间复杂度为O(n)，n-1次进行堆的调整，每次调整的时间复杂度为O(logn)，O(nlogn)
     所以，堆排序的时间复杂度为O(nlogn)。
     因为堆的每次插入、删除元素均需要重新调整堆，所以插入语删除元素的时间复杂度为O(logn).
  */
@@ -15,6 +15,7 @@ public class HeapSort {
             //从第一个非叶子结点从下至上，从右至左调整结构
             adjustHeap(nums, i, nums.length);
         }
+        // 大顶堆创建完成
         System.out.println(Arrays.toString(nums));
 
         //调整堆，升序排序，堆顶元素是最大的，放在相应位置

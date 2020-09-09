@@ -67,7 +67,7 @@ public class LRUCache {
             tail.pre.pre.next = tail;
             tail.pre = tail.pre.pre;
         }
-        // 链表及哈希表中加入新节点
+        // 链表及map中加入新节点
         map.put(key, node);
         addFirst(node);
     }
