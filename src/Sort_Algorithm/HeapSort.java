@@ -42,7 +42,7 @@ public class HeapSort {
             if (rChild < length && nums[lChild] < nums[rChild]) {
                 lChild++;
             }
-            // 如果父结点的值已经大于孩子结点的值，则直接结束
+            // 如果父结点的值已经大于等于孩子结点的值，则直接结束
             if (temp >= nums[lChild]) {
                 break;
             }
