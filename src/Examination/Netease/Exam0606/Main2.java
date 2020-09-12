@@ -1,4 +1,4 @@
-package Examination.Netease;
+package Examination.Netease.Exam0606;
 
 import java.util.ArrayList;
 import java.util.HashMap;
