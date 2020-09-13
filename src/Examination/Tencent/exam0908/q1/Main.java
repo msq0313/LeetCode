@@ -1,9 +1,11 @@
 package Examination.Tencent.exam0908.q1;
 /*
-6
-6 5 4 3 2 1
-5
-6 5 4 2 1
+ * 两个降序子序列，求公共子序列
+ * 6
+ * 6 5 4 3 2 1
+ * 5
+ * 6 5 3 2 1
+ * 输出  6 5 3 2 1
  */
 import java.util.Scanner;
 
