@@ -1,4 +1,4 @@
-package Examination.JD;
+package Examination.JD.exam;
 
 import java.util.LinkedList;
 import java.util.Queue;
