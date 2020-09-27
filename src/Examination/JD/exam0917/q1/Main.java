@@ -7,7 +7,9 @@ And millionaires will hold 46% of total wealth by a2019, the report says. This r
 in 1999,
 a2010a,0324abc2020
  */
-
+/*
+第一个ac思路:先遍历string，把不是0－9的全换成空格，再用split以空格为依据拆分，最后对每个项判断在不在年份里
+ */
 import java.util.Scanner;
 
 public class Main {
