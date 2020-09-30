@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class TreePostOrder {
@@ -79,5 +81,31 @@ public class TreePostOrder {
                 node = stack.peek().right;
             }
         }
+    }
+
+    //后序遍历非递归实现
+    public List<Integer> postorderTraversal(TreeNode root) {
+        ArrayList<Integer> res = new ArrayList<>();
+        int left = 1;
+        int right = 2;
+        Stack<TreeNode> stack = new Stack<>();
+        Stack<Integer> stack2 = new Stack<>();
+        while (root != null || !stack.empty()) {
+            while (root != null) {
+                stack.push(root);
+                stack2.push(left);
+                root = root.left;
+            }
+            while (!stack.empty() && stack2.peek() == right) {
+                stack2.pop();
+                res.add(stack.pop().value);
+            }
+            if (!stack.empty() && stack2.peek() == left) {
+                stack2.pop();
+                stack2.push(right);
+                root = stack.peek().right;
+            }
+        }
+        return res;
     }
 }
