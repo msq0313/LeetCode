@@ -1,7 +1,5 @@
 package LinkedList;
 
-import java.util.Stack;
-
 public class Test {
     private static class TreeNode{
         int val;
@@ -18,6 +16,5 @@ public class Test {
         System.out.println(p.val == root.val);  //true
         p.next = new TreeNode(3);
         System.out.println(p.next == root.next.next); // true
-        Stack stack = new Stack();
     }
 }
