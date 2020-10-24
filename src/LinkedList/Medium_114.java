@@ -1,4 +1,4 @@
-package LeetCode.second_0628;
+package LinkedList;
 /*
 114. 二叉树展开为链表
 给定一个二叉树，原地将它展开为一个单链表。
