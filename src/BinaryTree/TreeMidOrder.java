@@ -48,7 +48,7 @@ public class TreeMidOrder {
         }
     }
 
-    //中序遍历费递归实现
+    //中序遍历非递归实现
     public static void midOrder(TreeNode node) {
         Stack<TreeNode> stack = new Stack<>();
         while (node != null || !stack.isEmpty()) {

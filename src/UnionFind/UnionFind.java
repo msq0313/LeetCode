@@ -1,14 +1,12 @@
 package UnionFind;
 
-public class UF {
+public class UnionFind {
     // 记录连通分量个数
     private int count;
-    // 父节点
     private int[] parent;
-    // 树的重量
     private int[] size;
     // 初始化
-    public UF(int n) {
+    public UnionFind(int n) {
         count = n;
         parent = new int[n];
         size = new int[n];
@@ -47,7 +45,7 @@ public class UF {
         count--;
     }
 
-    // 判断两个结点是否连接
+    // 判断两个结点是否连接，即判断两个结点的父结点是否相等
     public boolean isConnected(int a, int b) {
         int rootA = find(a);
         int rootB = find(b);
@@ -55,7 +53,7 @@ public class UF {
     }
 
     public static void main(String[] args) {
-        UF uf = new UF(5);
+        UnionFind uf = new UnionFind(5);
         System.out.println(uf.count);
         System.out.println(uf.isConnected(1, 2));
         uf.union(1, 2);
