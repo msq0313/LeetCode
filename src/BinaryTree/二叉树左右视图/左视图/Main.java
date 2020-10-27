@@ -1,4 +1,4 @@
-package BFS.二叉树左右视图.左视图;
+package BinaryTree.二叉树左右视图.左视图;
 
 import java.util.*;
 
