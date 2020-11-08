@@ -9,7 +9,7 @@ public class DetectCycle {
             val = x;
         }
     }
-
+    // 找到成环节点
     ListNode detectCycle(ListNode head) {
         ListNode fast, slow;
         fast = slow = head;

@@ -8,5 +8,7 @@ public class AsList {
         String[] str = new String[]{"hello","world"};
         List<String> list = Arrays.asList(str);
         list.add("you");
+
+        String[] array = (String[]) list.toArray();
     }
 }

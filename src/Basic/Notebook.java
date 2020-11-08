@@ -46,7 +46,19 @@ public class Notebook {
                         (p1.num.equals(p2.num)) ? p2.money.compareTo(p1.money) : p2.num.compareTo(p1.num));
     a.compareTo(b) a = b 返回0  a < b 返回负数 a > b返回正数
     PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> o1[0] - o2[0]);
-
+    */
+    @Test
+    public void test() {
+        int[] num1 = {2, 3};
+        int[] num2 = {1, 2};
+        PriorityQueue<int[]> queue = new PriorityQueue<>(new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0] - o2[0];
+            }
+        });
+    }
+    /*
 
     */
 
@@ -88,7 +100,6 @@ public class Notebook {
         for (int[] ints : list) {
             System.out.println(Arrays.toString(ints));
         }
-
     }
 
     /**
@@ -99,6 +110,7 @@ public class Notebook {
     public void test6() {
         String s = "abcdefg";
         System.out.println(s.substring(3, 7));
+
     }
 
     /**
