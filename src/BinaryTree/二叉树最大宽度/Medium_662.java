@@ -1,4 +1,4 @@
-package BinaryTree;
+package BinaryTree.二叉树最大宽度;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package BinaryTree;
+package BinaryTree.最大二叉树;
 /*
 654. 最大二叉树
 给定一个不含重复元素的整数数组。一个以此数组构建的最大二叉树定义如下：

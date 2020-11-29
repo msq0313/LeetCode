@@ -1,6 +1,4 @@
-package BinaryTree;
-
-import java.util.TreeMap;
+package BinaryTree.从中序与后序遍历序列构造二叉树;
 
 /*
 106. 从中序与后序遍历序列构造二叉树

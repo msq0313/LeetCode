@@ -1,4 +1,4 @@
-package BinaryTree;
+package BinaryTree.左叶子之和;
 
 import java.util.LinkedList;
 import java.util.Queue;

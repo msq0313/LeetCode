@@ -1,4 +1,4 @@
-package BinaryTree;
+package BinaryTree.树的生成;
 
 import java.util.LinkedList;
 
