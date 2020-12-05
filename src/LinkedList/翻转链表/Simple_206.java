@@ -1,4 +1,4 @@
-package LeetCode.first_0301;
+package LinkedList.翻转链表;
 
 /**
  * 206. 反转链表

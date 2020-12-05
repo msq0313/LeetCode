@@ -25,6 +25,20 @@ public class Offer06 {
             val = x;
         }
     }
+//    public int[] reversePrint(ListNode head) {
+//        Stack<Integer> stack = new Stack<>();
+//        ListNode p = head;
+//        while (p != null) {
+//            stack.push(p.val);
+//            p = p.next;
+//        }
+//        int[] res = new int[stack.size()];
+//        for (int i = 0; i < res.length; i++) {
+//            res[i] = stack.pop();
+//        }
+//        return res;
+//    }
+
     public int[] reversePrint(ListNode head) {
         Stack<Integer> stack = new Stack<>();
         ListNode p = head;
