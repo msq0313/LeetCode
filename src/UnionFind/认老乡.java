@@ -29,7 +29,7 @@ import java.util.Scanner;
 输出
 对于每组测试实例，输出一个整数，代表确定是小赛同乡的人数。
  */
-public class 动脑子认老乡 {
+public class 认老乡 {
     public static class UnionFind{
         int[] parent;
         int[] size;
