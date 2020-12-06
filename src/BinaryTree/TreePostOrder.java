@@ -19,27 +19,6 @@ public class TreePostOrder {
         }
     }
 
-    //以数组形式生成一棵完全二叉树
-    public static void main(String[] args)
-    {
-        TreeNode[] node = new TreeNode[10];
-        for(int i = 0; i < 10; i++)
-        {
-            node[i] = new TreeNode(i);
-        }
-        for(int i = 0; i < 10; i++)
-        {
-            if(i*2+1 < 10)
-                node[i].left = node[i*2+1];
-            if(i*2+2 < 10)
-                node[i].right = node[i*2+2];
-        }
-
-        postOrderRe(node[0]);
-        System.out.println("***");
-        postOrder(node[0]);
-    }
-
     //后序遍历递归实现
     public static void postOrderRe(TreeNode node)
     {
@@ -96,7 +75,7 @@ public class TreePostOrder {
                 stack2.push(left);
                 root = root.left;
             }
-            while (!stack.empty() && stack2.peek() == right) {
+            if (!stack.empty() && stack2.peek() == right) {
                 stack2.pop();
                 res.add(stack.pop().value);
             }
@@ -107,5 +86,42 @@ public class TreePostOrder {
             }
         }
         return res;
+    }
+
+    //以数组形式生成一棵完全二叉树
+    public static void main(String[] args)
+    {
+        TreeNode[] node = new TreeNode[10];
+        for(int i = 0; i < 10; i++)
+        {
+            node[i] = new TreeNode(i);
+        }
+        for(int i = 0; i < 10; i++)
+        {
+            if(i*2+1 < 10)
+                node[i].left = node[i*2+1];
+            if(i*2+2 < 10)
+                node[i].right = node[i*2+2];
+        }
+
+        postOrderRe(node[0]);
+        System.out.println("***");
+        postOrder(node[0]);
+        System.out.println("***");
+
+//        TreeNode root = new TreeNode(7);
+//        root.left = new TreeNode(5);
+//        root.right = new TreeNode(6);
+//        root.left.left = new TreeNode(1);
+//        root.left.right = new TreeNode(4);
+//        root.left.right.left = new TreeNode(2);
+//        root.left.right.right = new TreeNode(3);
+
+        TreeNode root = new TreeNode(7);
+        root.right = new TreeNode(6);
+        root.right.right = new TreeNode(5);
+        List<Integer> res = new TreePostOrder().postorderTraversal(root);
+        System.out.println(res.toString());
+
     }
 }

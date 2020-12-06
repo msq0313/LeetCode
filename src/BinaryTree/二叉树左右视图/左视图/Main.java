@@ -31,7 +31,7 @@ public class Main {
         TreeNode() {}
     }
 
-    // 生成右视图节点值
+    // 生成左视图节点值
     public ArrayList<Integer> rightView(TreeNode root) {
         ArrayList<Integer> res = new ArrayList<>();
         if (root == null) {
