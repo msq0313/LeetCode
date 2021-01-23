@@ -104,6 +104,7 @@ public class Medium_1319 {
             } else {
                 unionFind.union(connection[0], connection[1]);
             }
+
         }
         return rest >= unionFind.count - 1 ? unionFind.count - 1 : -1;
     }
