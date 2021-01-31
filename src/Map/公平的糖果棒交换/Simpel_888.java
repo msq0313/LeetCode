@@ -1,9 +1,7 @@
 package Map.公平的糖果棒交换;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 
 /*
 888. 公平的糖果棒交换
